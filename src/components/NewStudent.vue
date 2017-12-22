@@ -28,7 +28,7 @@
           </div>
         </div>
         <button type="submit" class="btn">Submit</button>
-        <router-link to="/" class="btn grey">Cancel</router-link>
+        <router-link to="/students" class="btn grey">Cancel</router-link>
      </form>
    </div>
  </div>
@@ -54,7 +54,7 @@ export default {
         group: this.group,
         section: this.section
       })
-      .then(docRef => this.$router.push('/'))
+      .then(docRef => this.$router.push('/students'))
       .catch(error => console.log(err))
     }
   }

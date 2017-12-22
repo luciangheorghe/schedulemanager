@@ -8,7 +8,7 @@
      <li class="collection-item">Group: {{group}}</li>
      <li class="collection-item">Section: {{section}}</li>
    </ul>
-   <router-link to="/" class="btn grey">Back</router-link>
+   <router-link to="/students" class="btn grey">Back</router-link>
    <button @click="deleteStudent" class="btn red">Delete</button>
 
    <div class="fixed-action-btn">
@@ -65,7 +65,7 @@ export default {
         .then(querySnapshot => {
           querySnapshot.forEach(doc => {
             doc.ref.delete()
-            this.$router.push('/')
+            this.$router.push('/students')
           })
         })
       }
