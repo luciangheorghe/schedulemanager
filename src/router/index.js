@@ -9,6 +9,10 @@ import Teachers from '@/components/Teachers'
 import NewTeacher from '@/components/NewTeacher'
 import EditTeacher from '@/components/EditTeacher'
 import ViewTeacher from '@/components/ViewTeacher'
+import Subjects from '@/components/Subjects'
+import NewSubject from '@/components/NewSubject'
+import EditSubject from '@/components/EditSubject'
+import ViewSubject from '@/components/ViewSubject'
 
 Vue.use(Router)
 
@@ -28,6 +32,16 @@ export default new Router({
       path: '/newteacher',
       name: 'new-teacher',
       component: NewTeacher
+    },
+    {
+      path: '/newsubject',
+      name: 'new-subject',
+      component: NewSubject
+    },
+    {
+      path: '/subjects',
+      name: 'subjects',
+      component: Subjects
     },
     {
       path: '/students',
@@ -50,9 +64,19 @@ export default new Router({
       component: EditTeacher
     },
     {
+      path: '/edit/:subject_id',
+      name: 'edit-subject',
+      component: EditSubject
+    },
+    {
       path: '/:teacher_id',
       name: 'view-teacher',
       component: ViewTeacher
+    },
+    {
+      path: '/:subject_id',
+      name: 'view-subject',
+      component: ViewSubject
     },
     {
       path: '/:student_id',
