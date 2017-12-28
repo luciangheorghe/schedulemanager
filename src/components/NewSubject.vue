@@ -5,7 +5,7 @@
      <form @submit.prevent="saveSubject" class="col s12">
         <div class="row">
           <div class="input-field col s12">
-            <input type="text" v-model="Subject_id" required />
+            <input type="text" v-model="subject_id" required />
             <label>Subject ID#</label>
           </div>
         </div>

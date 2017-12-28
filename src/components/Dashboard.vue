@@ -6,32 +6,65 @@
    <table class="bordered highlight">
            <thead>
              <tr>
-                 <th>Day</th>
-                 <th>Hours</th>
-                 <th>Subject</th>
-                 <th>Teacher</th>
-                 <th>Students</th>
+                  <th></th>
+                 <th>Monday</th>
+                 <th>Tuesday</th>
+                 <th>Wednesday</th>
+                 <th>Thursday</th>
+                 <th>Friday</th>
              </tr>
            </thead>
-           <!-- <tbody>
-             <tr v-for="student in students" v-bind:key="student.id">
-               <td class="center-align">{{student.student_id}}</td>
-               <td >{{student.name}}</td>
-               <td class="center-align">{{student.group}}</td>
-               <td >{{student.section}}</td>
-               <td class="center-align">
-                 <router-link  v-bind:to="{name:'view-student', params: {student_id: student.student_id}}">
-                   <i class="fa fa-eye"></i>
-                 </router-link>
-               </td>
+           <tbody>
+             <tr>
+               <td>08 - 10</td>
+               <td>  </td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
              </tr>
-           </tbody> -->
+             <tr>
+               <td>10 - 12</td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+             </tr>
+             <tr>
+               <td>12 - 14</td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+             </tr>
+             <tr>
+               <td>14 - 16</td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+             </tr>
+             <tr>
+               <td>16 - 18</td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+             </tr>
+             <tr>
+               <td>18 - 20</td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+             </tr>
+           </tbody>
    </table>
-   <!-- <div class="fixed-action-btn">
-     <router-link to="/new" class="btn-floating btn-large red waves-effect waves-light">
-       <i class="fa fa-plus"></i>
-     </router-link>
-   </div> -->
  </div>
 </template>
 
@@ -41,22 +74,57 @@ export default {
   name: 'dashboard',
   data () {
     return {
-      // students: []
+      students: [],
+      teachers: [],
+      subjects: []
+      // hours: []
     }
   },
-  // created () {
-  //   db.collection('students').orderBy('name').get().then(querySnapshot => {
-  //     querySnapshot.forEach(doc => {
-  //       const data = {
-  //         'id': doc.id,
-  //         'student_id': doc.data().student_id,
-  //         'name': doc.data().name,
-  //         'group': doc.data().group,
-  //         'section': doc.data().section
-  //       }
-  //       this.students.push(data)
-  //     })
-  //   })
-  // }
+  created () {
+    db.collection('students').orderBy('name').get().then(querySnapshot => {
+      querySnapshot.forEach(doc => {
+        const data = {
+          'id': doc.id,
+          'student_id': doc.data().student_id,
+          'name': doc.data().name,
+          'group': doc.data().group,
+          'section': doc.data().section
+        }
+        this.students.push(data)
+      })
+    }),
+    db.collection('teachers').orderBy('name').get().then(querySnapshot => {
+      querySnapshot.forEach(doc => {
+        const data = {
+          'id': doc.id,
+          'teacher_id': doc.data().teacher_id,
+          'name': doc.data().name,
+          'subject': doc.data().subject
+        }
+        this.teachers.push(data)
+      })
+    }),
+    db.collection('subjects').orderBy('name').get().then(querySnapshot => {
+      querySnapshot.forEach(doc => {
+        const data = {
+          'id': doc.id,
+          'subject_id': doc.data().subject_id,
+          'name': doc.data().name,
+          'room': doc.data().room
+        }
+        this.subjects.push(data)
+      })
+    })
+    // db.collection('hours').orderBy('hour_id').get().then(querySnapshot => {
+    //   querySnapshot.forEach(doc => {
+    //     const data = {
+    //       'id': doc.id,
+    //       'hour_id': doc.data().hour_id,
+    //       'interval': doc.data().interval
+    //     }
+    //     this.hours.push(data)
+    //   })
+    // })
+  }
 }
 </script>
