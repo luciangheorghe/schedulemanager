@@ -43,13 +43,15 @@ export default {
     }
   },
   created () {
-    db.collection('teachers').orderBy('name').get().then(querySnapshot => {
+    db.collection('teachers').orderBy('teacher_id').get().then(querySnapshot => {
       querySnapshot.forEach(doc => {
         const data = {
           'id': doc.id,
           'teacher_id': doc.data().teacher_id,
           'name': doc.data().name,
-          'subject': doc.data().subject
+          'subject': doc.data().subject,
+          'days': doc.data().days,
+          'hours': doc.data().hours
         }
         this.teachers.push(data)
       })

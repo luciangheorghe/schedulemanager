@@ -43,7 +43,7 @@ export default {
     }
   },
   created () {
-    db.collection('subjects').orderBy('name').get().then(querySnapshot => {
+    db.collection('subjects').orderBy('subject_id').get().then(querySnapshot => {
       querySnapshot.forEach(doc => {
         const data = {
           'id': doc.id,
